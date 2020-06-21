@@ -2,6 +2,7 @@
 	"BuildId": "13144385",
 	"Modules": 
 	{
-		"Bonescaling": "UE4Editor-Bonescaling.dll"
+		"Bonescaling": "UE4Editor-Bonescaling.dll",
+		"BonescalingEditor": "UE4Editor-BonescalingEditor.dll"
 	}
 }

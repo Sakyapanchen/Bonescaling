@@ -3,4 +3,16 @@
 #include "Bonescaling.h"
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, Bonescaling, "Bonescaling" );
+class FBonescalingModule : public FDefaultGameModuleImpl
+{
+#if    WITH_EDITOR
+	virtual void StartupModule() override
+	{
+		FModuleManager::Get().LoadModule(TEXT("BlueprintGraph"));
+		FModuleManager::Get().LoadModule(TEXT("AnimGraphRuntime"));
+		FModuleManager::Get().LoadModule(TEXT("BonescalingEditor"));
+	}
+#endif
+};
+
+IMPLEMENT_PRIMARY_GAME_MODULE(FBonescalingModule, Bonescaling, "Bonescaling");
