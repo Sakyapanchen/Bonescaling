@@ -23,7 +23,7 @@ void FAnimNode_ScaleBones::EvaluateSkeletalControl_AnyThread(FComponentSpacePose
 	const FBoneContainer& BoneContainer = Output.Pose.GetPose().GetBoneContainer();
 	const FReferenceSkeleton ReferenceSkeleton = BoneContainer.GetReferenceSkeleton();
 	TMap<FName, FVector> BoneList = ScaleData.BoneList;
-
+	
 	for(const TPair<FName, FVector> Elem : BoneList)
 	{
 		FName BoneName = Elem.Key;

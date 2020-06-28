@@ -6,7 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "DefensiveComponent.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FDamageRecievedResult, int32, Health, FHitResult, Hit);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FDamageRecievedResult, AActor*, DamageInstigator, int32, Health, FHitResult, Hit);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FDeathResult, FHitResult, Hit);
 
 UCLASS( Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )

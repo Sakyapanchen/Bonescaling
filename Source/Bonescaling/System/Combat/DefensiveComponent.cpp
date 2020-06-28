@@ -18,8 +18,9 @@ void UDefensiveComponent::DealDamage(int32 DamageValue, FHitResult Hit, AActor* 
 	{
 		if (AccumulatedHits.Contains(Hit.BoneName))
 		{
-			int32* HitsCount = AccumulatedHits.Find(Hit.BoneName);
+			int32 HitsCount = *AccumulatedHits.Find(Hit.BoneName);
 			HitsCount++;
+			AccumulatedHits.Emplace(Hit.BoneName, HitsCount);
 		}
 		else
 		{
@@ -36,5 +37,5 @@ void UDefensiveComponent::DealDamage(int32 DamageValue, FHitResult Hit, AActor* 
 		OnDied.Broadcast(Hit);
 	}
 	else
-		OnDamageRecieved.Broadcast(Health, Hit);
+		OnDamageRecieved.Broadcast(DamageInstigator, Health, Hit);
 }
