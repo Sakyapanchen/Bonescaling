@@ -5,6 +5,8 @@
 
 void ABonescalingAIController::GoToAIState(EAIState NewState)
 {
+	if (NewState == CurrentAIState)
+		return;
 	CurrentAIState = NewState;
 	OnAIStateChange.Broadcast(CurrentAIState);
 }
